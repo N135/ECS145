@@ -11,6 +11,12 @@ def readNBytes(fileName,nBytes):
 #get all files located in this directory and their paths
 def fileList(dir_name):
 	f = []
+        #use os.walk to create file names for 
+        for root, dirs, files in os.walk(dir_name, True):
+                for name in files:
+                        f.append(os.path.join(root, name))
+        return f
+
 
 
 #takes a dict, returns tuples of len 2 for all values sharing the same key.
